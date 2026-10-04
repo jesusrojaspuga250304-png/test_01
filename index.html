@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="SoftSell: software y licencias para crecer sin complicaciones." />
+  <title>SoftSell | Software que impulsa tu negocio</title>
+  <style>
+    :root{--ink:#0d1630;--muted:#667085;--blue:#2864f0;--sky:#eaf1ff;--line:#e6eaf2;--white:#fff;--success:#10b981}
+    *{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:#fbfcff}
+    a{text-decoration:none;color:inherit}.wrap{width:min(1120px,calc(100% - 40px));margin:auto}
+    nav{height:76px;display:flex;align-items:center;justify-content:space-between}.brand{font-weight:800;font-size:1.35rem;letter-spacing:-.6px}.brand span{color:var(--blue)}
+    .links{display:flex;gap:26px;color:#475467;font-size:.94rem}.cart{border:1px solid var(--line);background:#fff;border-radius:10px;padding:10px 15px;font-weight:700;cursor:pointer}
+    .hero{padding:84px 0 72px;background:radial-gradient(circle at 78% 22%,#dce8ff 0,transparent 25%),linear-gradient(135deg,#f8faff,#eef4ff)}
+    .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center}.badge{display:inline-block;background:#dce8ff;color:#2158d8;padding:7px 11px;border-radius:99px;font-size:.8rem;font-weight:800}
+    h1{font-size:clamp(2.7rem,6vw,4.8rem);line-height:1.01;letter-spacing:-.07em;margin:18px 0}.hero p{font-size:1.1rem;line-height:1.7;color:var(--muted);max-width:570px}
+    .actions{display:flex;gap:14px;margin-top:30px}.btn{padding:14px 19px;border-radius:10px;font-weight:800;border:1px solid transparent;cursor:pointer;font-size:.95rem}.primary{background:var(--blue);color:#fff}.secondary{border-color:#cbd5e1;background:#fff}
+    .hero-card{background:#fff;border:1px solid #dce5fa;border-radius:22px;padding:25px;box-shadow:0 25px 55px rgba(41,94,207,.14)}.card-head{display:flex;justify-content:space-between;align-items:center}.dot{width:11px;height:11px;border-radius:50%;background:var(--success)}.metric{font-size:2.45rem;font-weight:850;letter-spacing:-.07em;margin:28px 0 3px}.bars{display:flex;align-items:end;gap:9px;height:94px;margin-top:22px}.bar{background:linear-gradient(#75a2ff,#2864f0);width:12%;border-radius:5px 5px 0 0}
+    section{padding:76px 0}.eyebrow{text-transform:uppercase;letter-spacing:.12em;color:var(--blue);font-size:.75rem;font-weight:850}.section-title{font-size:2.15rem;letter-spacing:-.05em;margin:10px 0}.section-sub{color:var(--muted);margin:0 0 34px}
+    .products{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.product{border:1px solid var(--line);background:#fff;padding:25px;border-radius:17px;transition:.2s}.product:hover{transform:translateY(-4px);box-shadow:0 16px 35px rgba(16,24,40,.09)}.icon{width:46px;height:46px;border-radius:13px;display:grid;place-items:center;background:var(--sky);font-size:1.35rem}.product h3{margin:18px 0 8px}.product p{color:var(--muted);font-size:.92rem;line-height:1.55;min-height:44px}.price{font-size:1.45rem;font-weight:850;margin:20px 0 15px}.price small{font-size:.78rem;color:var(--muted);font-weight:500}
+    .product button{width:100%;background:#fff;color:var(--blue);border:1px solid #bcd0ff}.product button:hover{background:var(--blue);color:#fff}
+    .why{background:var(--ink);color:#fff}.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px}.why .section-sub{color:#b9c4da}.checks{display:grid;gap:16px;margin-top:28px}.check{display:flex;gap:12px;align-items:center}.tick{background:#1e3f93;color:#9cc0ff;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-weight:900}.review{border:1px solid #293858;border-radius:17px;padding:27px;background:#111e3b;align-self:center}.review p{font-size:1.14rem;line-height:1.65}.author{color:#aebbd1;font-size:.9rem}
+    .cta{text-align:center;background:var(--sky);border-radius:22px;padding:60px 25px}.cta h2{font-size:2.25rem;letter-spacing:-.05em;margin:0 0 12px}.cta p{color:var(--muted);margin-bottom:24px}
+    footer{padding:28px 0;color:#667085;font-size:.87rem;display:flex;justify-content:space-between;border-top:1px solid var(--line)}
+    .toast{position:fixed;right:22px;bottom:22px;background:#0d1630;color:#fff;padding:15px 18px;border-radius:10px;transform:translateY(100px);transition:.25s;box-shadow:0 10px 25px #0003}.toast.show{transform:translateY(0)}
+    @media(max-width:760px){.links{display:none}.hero{padding:55px 0}.hero-grid,.why-grid{grid-template-columns:1fr;gap:32px}.products{grid-template-columns:1fr}.hero-card{display:none}section{padding:55px 0}footer{display:block;line-height:2}.actions{flex-wrap:wrap}}
+  </style>
+</head>
+<body>
+  <header class="wrap"><nav><a class="brand" href="#">soft<span>sell</span>.</a><div class="links"><a href="#productos">Productos</a><a href="#nosotros">Nosotros</a><a href="#contacto">Contacto</a></div><button class="cart" id="cart">🛒 Carrito (0)</button></nav></header>
+  <main>
+    <section class="hero"><div class="wrap hero-grid"><div><span class="badge">LICENCIAS ORIGINALES Y SOPORTE REAL</span><h1>El software correcto para crecer.</h1><p>Encuentra herramientas digitales confiables para tu negocio, tu equipo y tus proyectos. Compra fácil, activa rápido y recibe acompañamiento cuando lo necesites.</p><div class="actions"><a class="btn primary" href="#productos">Ver soluciones</a><a class="btn secondary" href="#contacto">Hablar con un asesor</a></div></div><aside class="hero-card"><div class="card-head"><strong>Panel de negocio</strong><span class="dot"></span></div><div class="metric">+42%</div><span style="color:#667085">Productividad del equipo</span><div class="bars"><i class="bar" style="height:35%"></i><i class="bar" style="height:52%"></i><i class="bar" style="height:45%"></i><i class="bar" style="height:73%"></i><i class="bar" style="height:62%"></i><i class="bar" style="height:91%"></i></div></aside></div></section>
+    <section id="productos" class="wrap"><div class="eyebrow">CATÁLOGO DESTACADO</div><h2 class="section-title">Todo lo que tu operación necesita.</h2><p class="section-sub">Soluciones simples para trabajar mejor desde el primer día.</p><div class="products">
+      <article class="product"><div class="icon">📊</div><h3>Gestión Comercial</h3><p>CRM para organizar clientes, oportunidades y ventas en un solo lugar.</p><div class="price">S/ 79 <small>/ mes</small></div><button class="btn add" data-product="Gestión Comercial">Agregar al carrito</button></article>
+      <article class="product"><div class="icon">🧾</div><h3>Facturación Digital</h3><p>Emite comprobantes y controla tus ingresos de manera segura y sencilla.</p><div class="price">S/ 59 <small>/ mes</small></div><button class="btn add" data-product="Facturación Digital">Agregar al carrito</button></article>
+      <article class="product"><div class="icon">☁️</div><h3>Suite Productiva</h3><p>Correo corporativo, almacenamiento y colaboración para tu equipo.</p><div class="price">S/ 39 <small>/ usuario</small></div><button class="btn add" data-product="Suite Productiva">Agregar al carrito</button></article>
+    </div></section>
+    <section id="nosotros" class="why"><div class="wrap why-grid"><div><div class="eyebrow" style="color:#9cc0ff">POR QUÉ SOFTSELL</div><h2 class="section-title">Tecnología con atención humana.</h2><p class="section-sub">No solo entregamos una licencia. Te ayudamos a elegir la solución adecuada y a ponerla en marcha.</p><div class="checks"><div class="check"><span class="tick">✓</span> Licencias seguras y originales</div><div class="check"><span class="tick">✓</span> Activación rápida y guiada</div><div class="check"><span class="tick">✓</span> Soporte en español</div></div></div><div class="review"><p>“Encontramos el plan exacto para nuestro equipo y lo activamos el mismo día. La atención fue clara de inicio a fin.”</p><strong>María L.</strong><div class="author">Administradora de empresa</div></div></div></section>
+    <section id="contacto" class="wrap"><div class="cta"><div class="eyebrow">EMPIEZA HOY</div><h2>¿No sabes qué software elegir?</h2><p>Cuéntanos qué necesitas y te recomendaremos una solución sin compromiso.</p><a class="btn primary" href="mailto:ventas@softsell.pe">Solicitar asesoría</a></div></section>
+  </main>
+  <footer class="wrap"><span><strong>softsell.</strong> Software para trabajar mejor.</span><span>© 2026 SoftSell. Todos los derechos reservados.</span></footer>
+  <div class="toast" id="toast">Producto agregado al carrito.</div>
+  <script>
+    let count=0; const cart=document.getElementById('cart'), toast=document.getElementById('toast');
+    document.querySelectorAll('.add').forEach(btn=>btn.addEventListener('click',()=>{count++;cart.textContent='🛒 Carrito ('+count+')';toast.textContent=btn.dataset.product+' agregado al carrito.';toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),2500)}));
+    cart.addEventListener('click',()=>alert(count ? 'Tienes '+count+' producto(s) en tu carrito.\n\nPróximo paso: conectar una pasarela de pago.' : 'Tu carrito está vacío.'));
+  </script>
+</body>
+</html>
