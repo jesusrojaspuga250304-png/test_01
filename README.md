@@ -1,52 +1,61 @@
-# Aplivanta — tienda de software conceptual
+# Codalvia — experiencia de software multipágina
 
-Rediseño de `test_01` para particulares y empresas. HTML, CSS y JavaScript sin dependencias de producción ni compilación.
+Sitio estático para particulares y empresas. Conserva la paleta y la tipografía de la versión anterior y sustituye la landing extensa por páginas independientes.
 
-**Aplivanta es un nombre provisional: no se ha validado su disponibilidad registral ni de dominio.** Los seis productos son genéricos e ilustrativos; no se anuncian precios ni afiliaciones con fabricantes.
+**Nombre provisional:** Codalvia no tiene validación registral ni de dominio. Los productos son ejemplos genéricos; no hay pagos, venta de licencias ni envío de consultas activos.
 
-## Estructura
+## Páginas
+- `index.html`: portada breve y accesos por necesidad.
+- `catalogo.html`: búsqueda, filtros y comparación.
+- `producto.html?id=creative`: detalle de cada solución. IDs: creative, office, security, business, dev, personal.
+- `empresas.html`: casos por área y criterios para una consulta empresarial.
+- `guias.html`: centro de guías y preguntas frecuentes.
+- `guia-licencias.html`, `guia-compatibilidad.html`, `guia-implementacion.html`: artículos completos con índice.
+- `nosotros.html`: enfoque y estado del proyecto.
+- `contacto.html`: preparación y descarga local de consultas.
 
-- `index.html`: página, navegación, catálogo, sección empresarial, guías y preguntas frecuentes.
-- `assets/styles.css`: diseño adaptable, ilustraciones hechas con CSS y estilos accesibles.
-- `assets/app.js`: datos de catálogo, filtros, búsqueda, fichas, comparación y selección.
-- `assets/favicon.svg`: icono propio provisional.
-- `tests/smoke.cjs`: pruebas de navegador con Playwright (dependencia de desarrollo opcional).
+## Organización
+- `assets/styles.css`: sistema visual original, conservado.
+- `assets/pages.css`: composiciones multipágina y animaciones.
+- `assets/app.js`: catálogo compartido, selección, comparación, detalle, formulario y animación progresiva.
+- `assets/favicon.svg`: icono provisional.
+- `tests/smoke.cjs`: verificación de rutas, interacciones, movimiento reducido y diseño adaptable.
 
-## Ver localmente
+No hay dependencias de producción ni compilación. La navegación y los artículos están en HTML; JavaScript activa el catálogo y los flujos interactivos. Cabecera y pie están presentes en cada archivo, por lo que un cambio global debe replicarse en todos los HTML.
 
-Desde esta carpeta, ejecutar `python3 -m http.server 8080` y abrir `http://localhost:8080`.
-También se puede abrir `index.html` directamente; el almacenamiento local depende de las políticas del navegador.
+## Ejecutar
+Desde la raíz del proyecto:
 
-## Funciones
+```sh
+python3 -m http.server 8080 --bind 127.0.0.1
+```
 
-- Búsqueda tolerante a acentos, categorías, público y orden alfabético.
-- Fichas y comparación de 2–3 soluciones mediante diálogos con cierre Escape.
-- Selección persistente en el navegador con altas y bajas.
-- Consulta empresarial o personal con resumen descargable; **no se envía**.
-- Navegación móvil, foco visible, enlace para saltar al contenido y movimiento reducido.
+Abrir http://127.0.0.1:8080. Para GitHub Pages, se puede utilizar la raíz de main; este cambio no activa por sí solo la publicación.
 
-## Personalizar y pasar a producción
-
-1. Validar el nombre comercial y reemplazar la identidad provisional.
-2. Sustituir `products` en `assets/app.js` por catálogo, licencias y compatibilidades verificadas.
-3. Definir precios, impuestos y condiciones. La demo no realiza cálculos ni cobra.
-4. Integrar el backend comercial y una pasarela de pago alojada; nunca guardar claves privadas en el frontend.
-5. Configurar entrega de licencias, contacto real, políticas de privacidad y condiciones comerciales.
-
-No se usan correos inventados, testimonios ficticios ni logotipos de fabricantes.
+## Interacciones y enlaces
+- Filtros de entrada: `catalogo.html?publico=business&categoria=Gestión` y `?publico=personal`. También admite `?q=texto`.
+- Fichas con URL compartible y navegación nativa Atrás/Adelante.
+- Comparación de 2–3 soluciones.
+- Selección persistente entre páginas y pestañas mediante localStorage. Se migra la selección de Aplivanta cuando todavía no existe una selección de Codalvia.
+- `contacto.html?tipo=empresa` preselecciona empresa. Se genera un archivo de texto local; no se envían datos.
+- Animaciones de entrada, elevación al pasar el cursor y apariciones por sección. Las animaciones decorativas son finitas; se respeta `prefers-reduced-motion`.
+- Menú móvil, foco visible, enlace para saltar contenido y diálogos cerrables con Escape.
 
 ## Pruebas
+Con Playwright y Chromium disponibles, ejecutar (la prueba inicia su propio servidor local temporal):
 
-Con Playwright y Chromium instalados, iniciar el servidor local anterior y ejecutar `node tests/smoke.cjs`. Si Playwright está en una ruta externa, definir `NODE_PATH` según el entorno. No forma parte del sitio publicado.
+```sh
+node tests/smoke.cjs
+```
 
-## Publicación
+Opciones de entorno: `TEST_URL` para la URL, `BROWSER_EXECUTABLE` para un Chromium externo y `NODE_PATH` si Playwright está instalado fuera del proyecto. Las capturas de QA se generan en el directorio temporal del sistema.
 
-La estructura es compatible con GitHub Pages desde la raíz de `main`. Este cambio por sí mismo no activa ni verifica un despliegue.
+## Antes de vender
+Validar la identidad comercial, cargar productos reales y condiciones verificadas, definir precios e impuestos e integrar backend, pago alojado, entrega de licencias y canales de atención. No añadir claves privadas al frontend. Ajustar privacidad y condiciones a los flujos reales.
 
-## Referencias de experiencia, no de identidad visual
+## Referencias de organización comercial
+- [Microsoft 365](https://www.microsoft.com/es-PE/microsoft-365/buy/compare-all-microsoft-365-products): públicos y comparación.
+- [Adobe Business](https://business.adobe.com/products.html): familias de soluciones.
+- [Newegg Software](https://www.newegg.com/Software-Services/Store/ID-6): categorías y exploración.
 
-- [Microsoft 365](https://www.microsoft.com/es-PE/microsoft-365/buy/compare-all-microsoft-365-products): separación de particulares y empresas y comparación de opciones.
-- [Adobe Business](https://business.adobe.com/products.html): familias de soluciones y orientación por necesidades.
-- [Newegg Software](https://www.newegg.com/Software-Services/Store/ID-6): categorías y exploración de catálogo.
-
-Se implementó una composición original sin copiar textos, marcas ni recursos de estas empresas.
+La identidad, las ilustraciones CSS y los textos de Codalvia son propios de este prototipo.
